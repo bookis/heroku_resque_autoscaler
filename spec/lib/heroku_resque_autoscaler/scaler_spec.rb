@@ -91,6 +91,11 @@ describe HerokuResqueAutoscaler do
       HerokuResqueAutoscaler::Scaler.stub(:job_count).and_return(num_jobs)
       HerokuResqueAutoscalerTestClass.num_desired_heroku_workers.should == 1
 
+      num_jobs = 0
+      HerokuResqueAutoscaler::Scaler.unstub(:job_count)
+      HerokuResqueAutoscaler::Scaler.stub(:job_count).and_return(num_jobs)
+      HerokuResqueAutoscalerTestClass.num_desired_heroku_workers.should == 0
+
       num_jobs = 10000
       HerokuResqueAutoscaler::Scaler.unstub(:job_count)
       HerokuResqueAutoscaler::Scaler.stub(:job_count).and_return(num_jobs)

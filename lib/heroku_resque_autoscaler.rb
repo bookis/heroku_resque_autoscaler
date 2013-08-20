@@ -4,6 +4,7 @@ require "heroku_resque_autoscaler/scaler"
 
 module HerokuResqueAutoscaler
     WORKER_SCALE = [
+      { :workers => 0, :job_count => 0 },
       { :workers => 1, :job_count => 1 },
       { :workers => 2, :job_count => 15 },
       { :workers => 3, :job_count => 25 },
